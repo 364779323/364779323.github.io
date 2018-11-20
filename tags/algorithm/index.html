@@ -22,7 +22,7 @@
     <meta name="description" content="">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>一位来自hnit的蒟蒻 · Leo&#39;s blog</title>
+    <title>Leo&#39;s blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,8 +203,6 @@
 </head>
 
     
-        <body class="about-body">
-    
     
 <header class="header">
 
@@ -222,22 +220,16 @@
 
 
 
-
-height:50vh;
 ">
     
     <!-- 主页  -->
-    
-    
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/aboutNow.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
-            
-            一位来自hnit的蒟蒻
             
         </h1>
         <!-- 副标题 -->
@@ -346,12 +338,44 @@ height:50vh;
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <!-- 不可以删除，否则会调用post的layout  -->
-<main class="main about-page">
-    <article class="article-entry">
-        <p><strong><em>程序员修炼中</em></strong><br><strong><em>因为不会使用github所以只能开个博客来存代码的弱鸡</em></strong></p>
-
+            <main class="main index-page">
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2018/11/21/并查集/">
+            
+                <span>并查集</span>
+        </a>
+        <div class="abstract-content">
+            Union-find用一个数组arr[]去储存每一个元素的上一级的位置 例如 元素1的上一级就是arr[1]利用递归 直到arr[k]=k即一个数的上一级就是自己时 就找到了最上级 如果画成一棵树 即为找到了root节点
+Void find(int k){    if(arr[k]==k) return k;    else return find(k);}
+路径压缩 个人理解为就是将根结点以外所有结点全部直接接在根结点上 从而加快寻找一个点的最上级的速度 只需要修改上面的一行代码    else return f[k]=find(f(k));
+在第一次写的时候出现了tle的情况 因为在...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/21</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Java">Java</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="algorithm">algorithm</a>
+    
+</div>
+            
+        </div>
     </article>
+    
+    <!-- paginator  -->
+    
 </main>
             <!-- profile -->
             

@@ -22,7 +22,7 @@
     <meta name="description" content="">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>一位来自hnit的蒟蒻 · Leo&#39;s blog</title>
+    <title>并查集 · Leo&#39;s blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,7 +203,7 @@
 </head>
 
     
-        <body class="about-body">
+        <body class="post-body">
     
     
 <header class="header">
@@ -211,6 +211,15 @@
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/">Leo&#39;s blog</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">并查集</a>
+            </div>
+    </div>
     
     <a class="home-link" href="/">Leo's blog</a>
 </header>
@@ -229,23 +238,69 @@ height:50vh;
     <!-- 主页  -->
     
     
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/aboutNow.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/postNow.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            一位来自hnit的蒟蒻
+            并查集
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class="post-intro-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Java">Java</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="algorithm">algorithm</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">427</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2018/11/21</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -346,12 +401,55 @@ height:50vh;
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <!-- 不可以删除，否则会调用post的layout  -->
-<main class="main about-page">
+            <main class="main post-page">
     <article class="article-entry">
-        <p><strong><em>程序员修炼中</em></strong><br><strong><em>因为不会使用github所以只能开个博客来存代码的弱鸡</em></strong></p>
+        <h2 id="Union-find"><a href="#Union-find" class="headerlink" title="Union-find"></a>Union-find</h2><p>用一个数组arr[]去储存每一个元素的上一级的位置 例如 元素1的上一级就是arr[1]<br>利用递归 直到arr[k]=k即一个数的上一级就是自己时 就找到了最上级 如果画成一棵树 即为找到了root节点</p>
+<p>Void find(int k){<br>    if(arr[k]==k) return k;<br>    else return find(k);<br>}</p>
+<p>路径压缩 个人理解为就是将根结点以外所有结点全部直接接在根结点上 从而加快寻找一个点的最上级的速度 只需要修改上面的一行代码<br>    <strong>else return f[k]=find(f(k));</strong></p>
+<p><strong><em>在第一次写的时候出现了tle的情况 因为在合并操作时有点想当然 直接arr[a]=b了 完全没有利用上所写的路径压缩 正确写法应该是随意将一个的根节点和另一个的根节点接在一起 即arr[find(a)]=find(b)</em></strong></p>
+<p>以下为全部代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">public class Main &#123;</span><br><span class="line">    static int[] arr=new int[200005];</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Scanner input=new Scanner(System.in);</span><br><span class="line">        int n=input.nextInt();</span><br><span class="line">        int m=input.nextInt();</span><br><span class="line">        for(int i=1;i&lt;n+1;i++)</span><br><span class="line">            arr[i]=i;</span><br><span class="line">        while(m--&gt;0)&#123;</span><br><span class="line">            int act=input.nextInt();</span><br><span class="line">            int a=input.nextInt();</span><br><span class="line">            int b=input.nextInt();</span><br><span class="line">            if(act==2)&#123;</span><br><span class="line">                if(find(a)==find(b)) System.out.println(&quot;Y&quot;);</span><br><span class="line">                else System.out.println(&quot;N&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">            else if(act==1)&#123;</span><br><span class="line">                arr[find(a)]=find(b);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    static int  find(int k)&#123;</span><br><span class="line">        if(arr[k]==k) return k;</span><br><span class="line">        else return arr[k]=find(arr[k]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>值得一提的是，因为洛谷不会给java选手额外的时间空间 所以直接这么提交的时候有三个点tle了 加上输入输出挂后就能过了 <del>输入输出挂真香</del></p>
 
     </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>原文作者：<a href="http://364779323.github.io">Leo</a>
+            </p><p>原文链接：<a href="http://364779323.github.io/2018/11/21/并查集/">http://364779323.github.io/2018/11/21/并查集/</a>
+            </p><p>发表日期：<a href="http://364779323.github.io/2018/11/21/并查集/">November 21st 2018, 12:29:58 am</a>
+            </p><p>更新日期：<a href="http://364779323.github.io/2018/11/21/并查集/">November 21st 2018, 12:44:09 am</a>
+            </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2018/11/07/Java输入输出挂模版/" title="Java输入输出挂模版">
+                    <div class="prevTitle">Java输入输出挂模版</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -451,6 +549,24 @@ height:50vh;
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Union-find"><span class="toc-number">1.</span> <span class="toc-text">Union-find</span></a></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -616,6 +732,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":100,"height":200},"mobile":{"show":true},"log":false});</script></body>
 </html>
