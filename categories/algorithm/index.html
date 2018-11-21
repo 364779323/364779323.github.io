@@ -351,10 +351,8 @@
                 <span>并查集</span>
         </a>
         <div class="abstract-content">
-            Union-find用一个数组arr[]去储存每一个元素的上一级的位置 例如 元素1的上一级就是arr[1]利用递归 直到arr[k]=k即一个数的上一级就是自己时 就找到了最上级 如果画成一棵树 即为找到了root节点
-Void find(int k){    if(arr[k]==k) return k;    else return find(k);}
-路径压缩 个人理解为就是将根结点以外所有结点全部直接接在根结点上 从而加快寻找一个点的最上级的速度 只需要修改上面的一行代码    else return f[k]=find(f(k));
-在第一次写的时候出现了tle的情况 因为在...
+            Union-find并查集，在一些有N个元素的集合应用问题中，我们通常是在开始时让每个元素构成一个单元素的集合，然后按一定顺序将属于同一组的元素所在的集合合并，其间要反复查找一个元素在哪个集合中。这一类问题近几年来反复出现在信息学的国际国内赛题中，其特点是看似并不复杂，但数据量极大，若用正常的数据结构来描述的话，往往在空间上过大，计算机无法承受;即使在空间上勉强通过，运行的时间复杂度也极高，根本就不可能在比赛规定的运行时间(1~3秒)内计算出试题需要的结果，只能用并查集来描述。–摘自百度百科
+可以用一个数组arr[]去储存每一个元素的上一级的位置 例如 元素1的上一级就是arr[1]利用...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -540,6 +538,8 @@ Void find(int k){    if(arr[k]==k) return k;    else return find(k);}
     
     
     
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 3
@@ -555,6 +555,11 @@ Void find(int k){    if(arr[k]==k) return k;    else return find(k);}
     
     <div class="archive-year"> 2018 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/21</span><a class="archive-post-title" href="/2018/11/21/并查集/">并查集</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -575,20 +580,6 @@ Void find(int k){    if(arr[k]==k) return k;    else return find(k);}
             <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2018/11/06/hello-world/">Hello World</a>
         </li>
     
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> 2018 </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/21</span><a class="archive-post-title" href="/2018/11/21/并查集/">并查集</a>
-        </li>
-    
     </ul></div>
   </div>
         <div class="sidebar-panel-tags">
@@ -596,11 +587,9 @@ Void find(int k){    if(arr[k]==k) return k;    else return find(k);}
     
         <span class="sidebar-tag-name" data-tags="Java"><span class="iconfont-archer">&#xe606;</span>Java</span>
     
-        <span class="sidebar-tag-name" data-tags="hexo"><span class="iconfont-archer">&#xe606;</span>hexo</span>
-    
-        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
-    
         <span class="sidebar-tag-name" data-tags="algorithm"><span class="iconfont-archer">&#xe606;</span>algorithm</span>
+    
+        <span class="sidebar-tag-name" data-tags="hexo"><span class="iconfont-archer">&#xe606;</span>hexo</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
