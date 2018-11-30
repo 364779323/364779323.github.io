@@ -365,10 +365,9 @@ height:50vh;
         </a>
         <div class="abstract-content">
             素数的定义为在大于一的自然数中，除了1和它本身外不再有其他因素我曾经一度以为1是素数当我们要打一个素数表或者求一个区间内的素数时，很多人的第一反应就是利用素数的定义去用一个循环来判断某个数是否为一个素数(暴力出奇迹)，这种方法的时间复杂度为O(sqrt(n))，在数据量很大的时候就会非常慢。这时我们就要用到一种叫做素数筛的东西去快速筛出我们需要的素数表。
-
-一般筛法（埃拉托斯特尼筛法）简称为埃筛
-思路素数的倍数一定不是素数
-步骤假设我们要求2-n内的所有素数，我们可以开一个长度为n+1的数组来保存信息(0为素数，1不是素数)，从2开始，把2的倍数都标记成合数，然后找到2后面的下一个素数3...
+一般筛法（埃拉托斯特尼筛法）简称为埃筛 时间复杂度为O(nlglgn) 不能称之为线性筛 但是速度也不是特别慢
+原理素数的倍数一定不是素数
+步骤假设我们要求2-n内的所有素数，我们可以开一个长度为n+1的数组来保存信息(0为素数，1不是...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -820,6 +819,8 @@ More...
     
     
     
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 6
@@ -835,21 +836,6 @@ More...
     
     <div class="archive-year"> 2018 </div>
     <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/30</span><a class="archive-post-title" href="/2018/11/30/线性素数筛/">线性素数筛</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/25</span><a class="archive-post-title" href="/2018/11/25/归并排序/">归并排序</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/23</span><a class="archive-post-title" href="/2018/11/23/快速幂/">快速幂</a>
-        </li>
     
     
         <li class="archive-post-item">
@@ -881,6 +867,21 @@ More...
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">11/30</span><a class="archive-post-title" href="/2018/11/30/线性素数筛/">线性素数筛</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/25</span><a class="archive-post-title" href="/2018/11/25/归并排序/">归并排序</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/23</span><a class="archive-post-title" href="/2018/11/23/快速幂/">快速幂</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">11/21</span><a class="archive-post-title" href="/2018/11/21/并查集/">并查集</a>
         </li>
     
@@ -891,11 +892,9 @@ More...
     
         <span class="sidebar-tag-name" data-tags="Java"><span class="iconfont-archer">&#xe606;</span>Java</span>
     
-        <span class="sidebar-tag-name" data-tags="algorithm"><span class="iconfont-archer">&#xe606;</span>algorithm</span>
-    
         <span class="sidebar-tag-name" data-tags="hexo"><span class="iconfont-archer">&#xe606;</span>hexo</span>
     
-        <span class="sidebar-tag-name" data-tags="-algorithm -Java"><span class="iconfont-archer">&#xe606;</span>-algorithm -Java</span>
+        <span class="sidebar-tag-name" data-tags="algorithm"><span class="iconfont-archer">&#xe606;</span>algorithm</span>
     
         <span class="sidebar-tag-name" data-tags="algorithm Java"><span class="iconfont-archer">&#xe606;</span>algorithm Java</span>
     
