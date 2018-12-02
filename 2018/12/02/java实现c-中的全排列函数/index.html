@@ -22,7 +22,7 @@
     <meta name="description" content="">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Leo&#39;s blog</title>
+    <title>java实现c++中的全排列函数 · Leo&#39;s blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -77,6 +77,8 @@
 
     <link rel="preload" href="/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="stylesheet" href="/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
@@ -201,14 +203,23 @@
 </head>
 
     
-        <body class="home-body">
+        <body class="post-body">
     
     
-<header class="header index-header">
+<header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/">Leo&#39;s blog</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">java实现c++中的全排列函数</a>
+            </div>
+    </div>
     
     <a class="home-link" href="/">Leo's blog</a>
 </header>
@@ -227,17 +238,17 @@ height:50vh;
     <!-- 主页  -->
     
     
-    <!-- 文章页  -->
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/indexNow.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/postNow.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Leo's blog
-            <!-- 文章页  -->
+            java实现c++中的全排列函数
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
@@ -245,12 +256,43 @@ height:50vh;
             <!-- 主页副标题  -->
             
             
-                Coding是世界上最有趣的事情
-            
-            <!-- 文章页  -->
+            <!-- 404 -->
             
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">276</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2018/12/02</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -351,336 +393,52 @@ height:50vh;
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2018/12/02/java实现c-中的全排列函数/">
-            
-                <span>java实现c++中的全排列函数</span>
-        </a>
-        <div class="abstract-content">
-            思路从网上得到的：是先从尾到头 遍历该串中的 每个字符，找到第一个  x[i] &lt; x[i+1]的位置将 0 到 i-1 截取出来 称为 s1 串将  i +1 到  x.lenght 长度的串截取出来  称为  s2 串反转s2 串     然后将  x[i]  插入 到s2 的第二个位置合并  s1  s2 串。得到该字符串字典序下一最大序列
-实现代码1234567891011121314151617181920212223242526272829303132333435import java.util.Scanner;public class Main &#123;    p...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/02</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
+            <main class="main post-page">
+    <article class="article-entry">
+        <h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>从网上得到的：<br>是先从尾到头 遍历该串中的 每个字符，找到第一个  x[i] &lt; x[i+1]的位置<br>将 0 到 i-1 截取出来 称为 s1 串<br>将  i +1 到  x.lenght 长度的串截取出来  称为  s2 串<br>反转s2 串     然后将  x[i]  插入 到s2 的第二个位置<br>合并  s1  s2 串。<br>得到该字符串字典序下一最大序列</p>
+<h1 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line">public class Main &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Scanner input = new Scanner(System.in);</span><br><span class="line">        String x = input.next();</span><br><span class="line">        int i;</span><br><span class="line">        //找到 x[i] &lt; x[i+1] 的位置</span><br><span class="line">        for(i=x.length()-2;i&gt;=-1;i--)&#123;</span><br><span class="line">            if(i==-1)break;</span><br><span class="line">            if(x.charAt(i)&lt;x.charAt(i+1))&#123;</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        //当没有找到 x[i] &lt; x[i+1]位置的时候</span><br><span class="line">        //因为可能是0位置小于 1 位置，所以 用-1 代表找不到</span><br><span class="line">        if(i==-1)&#123;</span><br><span class="line">            System.out.println(x);</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            //反转 x[i+1] ~ len</span><br><span class="line">            StringBuffer s2 = new StringBuffer(x.substring(i+1));</span><br><span class="line">            s2 = s2.reverse();</span><br><span class="line"></span><br><span class="line">            //插入 第二个位置 x[i];</span><br><span class="line">            s2.insert(1,x.charAt(i));</span><br><span class="line"></span><br><span class="line">            //合并 s1 s2</span><br><span class="line">            s2.insert(0,x.substring(0,i));</span><br><span class="line"></span><br><span class="line">            System.out.println(s2);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
     </article>
+    <!-- license  -->
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2018/11/30/线性素数筛/">
-            
-                <span>线性素数筛</span>
-        </a>
-        <div class="abstract-content">
-            素数的定义为在大于一的自然数中，除了1和它本身外不再有其他因素我曾经一度以为1是素数当我们要打一个素数表或者求一个区间内的素数时，很多人的第一反应就是利用素数的定义去用一个循环来判断某个数是否为一个素数(暴力出奇迹)，这种方法的时间复杂度为O(sqrt(n))，在数据量很大的时候就会非常慢。这时我们就要用到一种叫做素数筛的东西去快速筛出我们需要的素数表。
-一般筛法（埃拉托斯特尼筛法）简称为埃筛 时间复杂度为O(nlglgn) 不能称之为线性筛 但是速度也不是特别慢
-原理素数的倍数一定不是素数
-步骤假设我们要求2-n内的所有素数，我们可以开一个长度为n+1的数组来保存信息(0为素数，1不是...
+        <div class="license-wrapper">
+            <p>原文作者：<a href="http://364779323.github.io">Leo</a>
+            </p><p>原文链接：<a href="http://364779323.github.io/2018/12/02/java实现c-中的全排列函数/">http://364779323.github.io/2018/12/02/java实现c-中的全排列函数/</a>
+            </p><p>发表日期：<a href="http://364779323.github.io/2018/12/02/java实现c-中的全排列函数/">December 2nd 2018, 10:55:05 am</a>
+            </p><p>更新日期：<a href="http://364779323.github.io/2018/12/02/java实现c-中的全排列函数/">December 2nd 2018, 11:02:15 am</a>
+            </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/30</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="algorithm">algorithm</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2018/11/25/归并排序/">
-            
-                <span>归并排序</span>
-        </a>
-        <div class="abstract-content">
-            归并排序是建立在归并操作上的一种有效的排序算法，时间复杂度为O(n logn)，空间复杂度为O(n)，该算法为分治法的一个非常典型的应用。步骤：1.申请一个临时数组，大小等于待排序的数组，用于存放合并后的序列2.设定两个指针，最初位置分别为两个已经排序序列的起始位置3.比较两个指针指向的元素，把相对小的放入临时数组，并移动指针至下一位置4.直到某一指针超出序列尾，将另一序列剩下的所有元素直接复制到尾端5.用临时数组覆盖代排序数组
-归并排序的前提是需要两个已经排好顺序的数组，那往往不会有两个已经排好顺序的数组给我们，一般给我们的都是杂乱无章的一个数组，那这个算法是不是很鸡肋呢？其实并不是这...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/25</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="algorithm">algorithm</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2018/11/23/快速幂/">
-            
-                <span>快速幂</span>
-        </a>
-        <div class="abstract-content">
-            如何快速的求a的b次方并对c取模呢？首先 通过百度得知一个公式ab mod c = (a mod c)b mod c至于证明过程就不管它了/狗头快速幂写法Int ans=1;While(b&gt;0){    if((b&amp;1)==1)        ans=ansa%mod;    b&gt;&gt;=1;    a=(aa)%mod;}Return ans;
-ps：直接提交后 我发现洛谷最后一个点过不去测试数据为1 0 1 应该输出 0 此时我的代码就出现了bug 输出的是1 此时将ans再对mod取模一次就好了附上模版题java代码(https://www.luogu.org...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/23</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Java">Java</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="algorithm">algorithm</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2018/11/21/并查集/">
-            
-                <span>并查集</span>
-        </a>
-        <div class="abstract-content">
-            Union-find并查集，在一些有N个元素的集合应用问题中，我们通常是在开始时让每个元素构成一个单元素的集合，然后按一定顺序将属于同一组的元素所在的集合合并，其间要反复查找一个元素在哪个集合中。这一类问题近几年来反复出现在信息学的国际国内赛题中，其特点是看似并不复杂，但数据量极大，若用正常的数据结构来描述的话，往往在空间上过大，计算机无法承受;即使在空间上勉强通过，运行的时间复杂度也极高，根本就不可能在比赛规定的运行时间(1~3秒)内计算出试题需要的结果，只能用并查集来描述。–摘自百度百科
-可以用一个数组arr[]去储存每一个元素的上一级的位置 例如 元素1的上一级就是arr[1]利用...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/21</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Java">Java</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="algorithm">algorithm</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2018/11/07/Java输入输出挂模版/">
-            
-                <span>Java输入输出挂模版</span>
-        </a>
-        <div class="abstract-content">
-            Java中的输入输出挂 比scanner类和system.output.println()还是要快上许多的用out进行输出时是不会看到输出结果的 可以先使用system.out.println来测试输出是否正确1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859import java.io.BufferedReader;import java.io.InputStreamReader;import java.io.Print...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/07</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Java">Java</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2018/11/06/hello-world/">
-            
-                <span>Hello World</span>
-        </a>
-        <div class="abstract-content">
-            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new post1$ hexo new "My New Post"
-More info: Writing
-Run server1$ hexo server
-More...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/06</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="hexo">hexo</a>
-    
-</div>
-            
-        </div>
-    </article>
     
     <!-- paginator  -->
-    
-</main>
-            <!-- profile -->
+    <ul class="post-paginator">
+        <li class="next">
             
-            <div class="profile">
-    <img class="profile-avatar" alt="avatar" src="/avatar/shawu.jpg">
-    <div class="profile-name">Leo</div>
-    
-    <div class="profile-signature">
-        最喜欢孙孙了
-    </div>
-    
-    
-    <div class="profile-social">
-        
-    
-        
+        </li>
+        <li class="previous">
             
-                <a href="mailto:364779323@qq.com" class="iconfont-archer email" title="email"></a>
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2018/11/30/线性素数筛/" title="线性素数筛">
+                    <div class="prevTitle">线性素数筛</div>
+                </a>
             
-        
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
-        
-            
-                <a href="//github.com/364779323" class="iconfont-archer github" target="_blank" title="github"></a>
-            
-        
     
-        
-            
-                <span class="iconfont-archer wechat" title="wechat">
-                  
-                  <img class="profile-qr" src="/assets/wechat.png">
-                </span>
-            
-        
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
     
-        
-            
-                <span class="iconfont-archer qq" title="qq">
-                  
-                  <img class="profile-qr" src="/assets/qq.png">
-                </span>
-            
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-            
-                <a href="https://space.bilibili.com/35307948/#/" class="iconfont-archer bilibili" target="_blank" title="bilibili"></a>
-            
-        
-    
-        
-    
-        
-            
-                <a href="https://steamcommunity.com/profiles/76561198444039727/" class="iconfont-archer steam" target="_blank" title="steam"></a>
-            
-        
-    
-        
-    
-        
     
 
-    </div>
-    
-    
-        <div class="friends">
-            <div>FRIENDS</div>
-            
-                
-                    <span>
-                        <a href="//www.baidu.com" target="_black">friendA</a>
-                    </span>
-                
-            
-                
-                    <span>
-                        <a href="//www.google.com" target="_black">friendB</a>
-                    </span>
-                
-            
-                
-            
-        </div>
-    
-    
-        <div class="about-me">
-            <a href="/about">ABOUT ME</a>
-        </div>
-    
-</div>
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
             
         </div>
         <footer class="footer footer-unloaded">
@@ -778,6 +536,24 @@ More...
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#思路"><span class="toc-number">1.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实现代码"><span class="toc-number">2.</span> <span class="toc-text">实现代码</span></a></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1001,6 +777,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":100,"height":200},"mobile":{"show":true},"log":false});</script></body>
 </html>
