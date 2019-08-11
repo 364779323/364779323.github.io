@@ -346,150 +346,27 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2018/12/02/java实现c-中的全排列函数/">
+        <a class="abstract-title" href="/2018/12/03/Mysql基础语句/">
             
-                <span>java实现c++中的全排列函数</span>
+                <span>Mysql基础语句</span>
         </a>
         <div class="abstract-content">
-            思路从网上得到的：是先从尾到头 遍历该串中的 每个字符，找到第一个  x[i] &lt; x[i+1]的位置将 0 到 i-1 截取出来 称为 s1 串将  i +1 到  x.lenght 长度的串截取出来  称为  s2 串反转s2 串     然后将  x[i]  插入 到s2 的第二个位置合并  s1  s2 串。得到该字符串字典序下一最大序列
-实现代码1234567891011121314151617181920212223242526272829303132333435import java.util.Scanner;public class Main &#123;    p...
+            前言因为准备学习javaweb的开发，在那之前得学习一些前置知识，于是就学习了一下Mysql的基础知识和用法。
+进入Mysql数据库mysql -u root -p
+建库 查库 删库 选库创建数据库: create database testmysql;查询数据库: show databases;删除数据库: drop database testmysql;选择数据库: use testmysql;
+# 
+
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/02</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/03</span>
             </div>
             <!-- tags  -->
             
             <div class="abstract-tags">
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="algorithm">algorithm</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2018/11/30/线性素数筛/">
-            
-                <span>线性素数筛</span>
-        </a>
-        <div class="abstract-content">
-            素数的定义为在大于一的自然数中，除了1和它本身外不再有其他因素我曾经一度以为1是素数当我们要打一个素数表或者求一个区间内的素数时，很多人的第一反应就是利用素数的定义去用一个循环来判断某个数是否为一个素数(暴力出奇迹)，这种方法的时间复杂度为O(sqrt(n))，在数据量很大的时候就会非常慢。这时我们就要用到一种叫做素数筛的东西去快速筛出我们需要的素数表。
-一般筛法（埃拉托斯特尼筛法）简称为埃筛 时间复杂度为O(nlglgn) 不能称之为线性筛 但是速度也不是特别慢
-原理素数的倍数一定不是素数
-步骤假设我们要求2-n内的所有素数，我们可以开一个长度为n+1的数组来保存信息(0为素数，1不是...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/30</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="algorithm">algorithm</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2018/11/25/归并排序/">
-            
-                <span>归并排序</span>
-        </a>
-        <div class="abstract-content">
-            归并排序是建立在归并操作上的一种有效的排序算法，时间复杂度为O(n logn)，空间复杂度为O(n)，该算法为分治法的一个非常典型的应用。步骤：1.申请一个临时数组，大小等于待排序的数组，用于存放合并后的序列2.设定两个指针，最初位置分别为两个已经排序序列的起始位置3.比较两个指针指向的元素，把相对小的放入临时数组，并移动指针至下一位置4.直到某一指针超出序列尾，将另一序列剩下的所有元素直接复制到尾端5.用临时数组覆盖代排序数组
-归并排序的前提是需要两个已经排好顺序的数组，那往往不会有两个已经排好顺序的数组给我们，一般给我们的都是杂乱无章的一个数组，那这个算法是不是很鸡肋呢？其实并不是这...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/25</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="algorithm">algorithm</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2018/11/23/快速幂/">
-            
-                <span>快速幂</span>
-        </a>
-        <div class="abstract-content">
-            如何快速的求a的b次方并对c取模呢？首先 通过百度得知一个公式ab mod c = (a mod c)b mod c至于证明过程就不管它了/狗头快速幂写法Int ans=1;While(b&gt;0){    if((b&amp;1)==1)        ans=ansa%mod;    b&gt;&gt;=1;    a=(aa)%mod;}Return ans;
-ps：直接提交后 我发现洛谷最后一个点过不去测试数据为1 0 1 应该输出 0 此时我的代码就出现了bug 输出的是1 此时将ans再对mod取模一次就好了附上模版题java代码(https://www.luogu.org...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/23</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Java">Java</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="algorithm">algorithm</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2018/11/21/并查集/">
-            
-                <span>并查集</span>
-        </a>
-        <div class="abstract-content">
-            Union-find并查集，在一些有N个元素的集合应用问题中，我们通常是在开始时让每个元素构成一个单元素的集合，然后按一定顺序将属于同一组的元素所在的集合合并，其间要反复查找一个元素在哪个集合中。这一类问题近几年来反复出现在信息学的国际国内赛题中，其特点是看似并不复杂，但数据量极大，若用正常的数据结构来描述的话，往往在空间上过大，计算机无法承受;即使在空间上勉强通过，运行的时间复杂度也极高，根本就不可能在比赛规定的运行时间(1~3秒)内计算出试题需要的结果，只能用并查集来描述。–摘自百度百科
-可以用一个数组arr[]去储存每一个元素的上一级的位置 例如 元素1的上一级就是arr[1]利用...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/21</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Java">Java</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="algorithm">algorithm</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="Mysql">Mysql</a>
     
 </div>
             
